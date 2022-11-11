@@ -3,10 +3,14 @@ const mongoose = require('mongoose')
 const express = require('express')
 const router =require("./router/router")
 const app=express()
+//used 
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.json());
 
 //mongoose link
-const url="mongodb+srv://ImuriaB:SIoJ1jC2mN8fOGmH@codequeen7.dkrndst.mongodb.net/test?retryWrites=true&w=majority"
-
+const url="mongodb+srv://ImuriaB:Dante@codequeen7.dkrndst.mongodb.net/test"
 // app.listen (8000,()=>{
 //     console.log(`server is running `)
 // })
@@ -18,7 +22,7 @@ app.get('/', (req, res) => {
        "message": "welcome to server"
     })
 })
-
+//connect to server to be able to use our router
 app.use('/',router)
 
 
